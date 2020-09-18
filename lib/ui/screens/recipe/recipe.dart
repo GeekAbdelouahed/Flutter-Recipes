@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recipes/config/constants.dart';
 import 'package:recipes/models/recipes/recipe.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:recipes/ui/screens/video.dart';
 
 import 'bloc/bloc.dart';
 
@@ -20,10 +20,16 @@ class RecipeScreen extends StatefulWidget {
 class _RecipeScreenState extends State<RecipeScreen> {
   final _bloc = RecipeBloc();
 
+  void _watchVideo(videoUrl) {
+    Navigator.push(
+      context,
+      CupertinoPageRoute(builder: (_) => VideoScreen(videoUrl: videoUrl)),
+    );
+  }
+
   @override
   void initState() {
     super.initState();
-
     _bloc.add(RecipeEvent.getDetails(recipeId: widget.recipeId));
   }
 
@@ -73,13 +79,38 @@ class _RecipeScreenState extends State<RecipeScreen> {
                               ),
                             ),
                             const SizedBox(height: 25),
-                            Text(
-                              recipe.title,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 25,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    recipe.title,
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(width: 10),
+                                recipe.video?.isNotEmpty ?? false
+                                    ? Container(
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.grey[200],
+                                        ),
+                                        child: IconButton(
+                                          onPressed: () {
+                                            _watchVideo(recipe.video);
+                                          },
+                                          icon: Icon(
+                                            Icons.video_library,
+                                            color:
+                                                Theme.of(context).accentColor,
+                                          ),
+                                        ),
+                                      )
+                                    : const SizedBox(),
+                              ],
                             ),
                             const SizedBox(height: 25),
                             Text(
@@ -106,30 +137,6 @@ class _RecipeScreenState extends State<RecipeScreen> {
                               style: Theme.of(context).textTheme.bodyText1,
                             ),
                             const SizedBox(height: 25),
-                            recipe.video?.isNotEmpty ?? false
-                                ? Text(
-                                    'Video',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  )
-                                : const SizedBox(),
-                            const SizedBox(height: 5),
-                            recipe.video?.isNotEmpty ?? false
-                                ? YoutubePlayer(
-                                    onReady: () {
-                                      print('ready');
-                                    },
-                                    controller: YoutubePlayerController(
-                                      initialVideoId:
-                                          YoutubePlayer.convertUrlToId(
-                                        recipe.video,
-                                      ),
-                                    ))
-                                : const SizedBox(),
-                            const SizedBox(height: 25),
                           ],
                         ),
                       ),
@@ -149,23 +156,25 @@ class _RecipeScreenState extends State<RecipeScreen> {
       String ingredient = recipe.toJson()['strIngredient$i'];
       String measure = recipe.toJson()['strMeasure$i'];
       if (ingredient != null && ingredient.isNotEmpty) {
-        widgets.add(ListTile(
-          title: Text('$measure $ingredient'),
-          trailing: Container(
-            height: 40,
-            width: 40,
-            padding: const EdgeInsets.all(5),
-            decoration: BoxDecoration(
-              color: Colors.grey[200],
-              shape: BoxShape.circle,
-            ),
-            child: CachedNetworkImage(
-              imageUrl:
-                  '${AppConstants.HOST}images/ingredients/$ingredient-Small.png',
-              fit: BoxFit.cover,
+        widgets.add(
+          ListTile(
+            title: Text('$measure $ingredient'),
+            trailing: Container(
+              height: 40,
+              width: 40,
+              padding: const EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                color: Colors.grey[200],
+                shape: BoxShape.circle,
+              ),
+              child: CachedNetworkImage(
+                imageUrl:
+                    '${AppConstants.HOST}images/ingredients/$ingredient-Small.png',
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-        ));
+        );
       }
     }
 
