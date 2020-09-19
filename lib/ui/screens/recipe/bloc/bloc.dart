@@ -1,11 +1,11 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:recipes/models/recipes/recipe.dart';
-import 'package:recipes/services/network.dart';
 
+import '../../../../models/recipes/recipe.dart';
 import '../../../../models/recipes/recipes.dart';
 import '../../../../models/server_error.dart';
+import '../../../../services/network.dart';
 
 part 'bloc.freezed.dart';
 

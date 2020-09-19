@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:recipes/models/categories/category.dart';
-import 'package:recipes/ui/items/recipe.dart';
 
+import '../../../models/categories/category.dart';
+import '../../../ui/items/recipe.dart';
 import 'bloc/bloc.dart';
 
 class CategoryScreen extends StatefulWidget {

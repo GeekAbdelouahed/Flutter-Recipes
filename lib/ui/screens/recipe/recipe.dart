@@ -2,10 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:recipes/config/constants.dart';
-import 'package:recipes/models/recipes/recipe.dart';
-import 'package:recipes/ui/screens/video.dart';
 
+import '../../../config/constants.dart';
+import '../../../models/recipes/recipe.dart';
+import '../../../ui/screens/video.dart';
 import 'bloc/bloc.dart';
 
 class RecipeScreen extends StatefulWidget {

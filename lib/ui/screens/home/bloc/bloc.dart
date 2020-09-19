@@ -1,11 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:recipes/models/categories/categories.dart';
-import 'package:recipes/models/server_error.dart';
-import 'package:recipes/services/network.dart';
 
+import '../../../../models/categories/categories.dart';
+import '../../../../models/recipes/recipe.dart';
 import '../../../../models/recipes/recipes.dart';
+import '../../../../models/server_error.dart';
+import '../../../../services/network.dart';
 
 part 'bloc.freezed.dart';
 
@@ -28,14 +29,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   }
 
   Stream<HomeState> _getRandomRecipe() async* {
-    yield HomeState.randomRecipesLoading();
+    yield HomeState.randomRecipeLoading();
     final response = await _appNetwork.get('random.php');
     yield* response.fold(
       (error) async* {
-        yield HomeState.randomRecipesError(serverError: error);
+        yield HomeState.randomRecipeError(serverError: error);
       },
       (json) async* {
-        yield HomeState.randomRecipesLoaded(recipes: Recipes.fromJson(json));
+        yield HomeState.randomRecipeLoaded(
+            recipe: Recipes.fromJson(json).items[0]);
       },
     );
   }

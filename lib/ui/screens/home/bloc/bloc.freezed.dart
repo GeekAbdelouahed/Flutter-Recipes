@@ -261,20 +261,20 @@ class _$HomeStateTearOff {
   }
 
 // ignore: unused_element
-  RandomRecipesLoading randomRecipesLoading() {
-    return const RandomRecipesLoading();
+  RandomRecipeLoading randomRecipeLoading() {
+    return const RandomRecipeLoading();
   }
 
 // ignore: unused_element
-  RandomRecipesLoaded randomRecipesLoaded({@required Recipes recipes}) {
-    return RandomRecipesLoaded(
-      recipes: recipes,
+  RandomRecipeLoaded randomRecipeLoaded({@required Recipe recipe}) {
+    return RandomRecipeLoaded(
+      recipe: recipe,
     );
   }
 
 // ignore: unused_element
-  RandomRecipesError randomRecipesError({@required ServerError serverError}) {
-    return RandomRecipesError(
+  RandomRecipeError randomRecipeError({@required ServerError serverError}) {
+    return RandomRecipeError(
       serverError: serverError,
     );
   }
@@ -306,9 +306,9 @@ mixin _$HomeState {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
-    @required Result randomRecipesLoading(),
-    @required Result randomRecipesLoaded(Recipes recipes),
-    @required Result randomRecipesError(ServerError serverError),
+    @required Result randomRecipeLoading(),
+    @required Result randomRecipeLoaded(Recipe recipe),
+    @required Result randomRecipeError(ServerError serverError),
     @required Result categoriesLoading(),
     @required Result categoriesLoaded(Categories categories),
     @required Result categoriesError(ServerError serverError),
@@ -316,9 +316,9 @@ mixin _$HomeState {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
-    Result randomRecipesLoading(),
-    Result randomRecipesLoaded(Recipes recipes),
-    Result randomRecipesError(ServerError serverError),
+    Result randomRecipeLoading(),
+    Result randomRecipeLoaded(Recipe recipe),
+    Result randomRecipeError(ServerError serverError),
     Result categoriesLoading(),
     Result categoriesLoaded(Categories categories),
     Result categoriesError(ServerError serverError),
@@ -327,9 +327,9 @@ mixin _$HomeState {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(Initial value),
-    @required Result randomRecipesLoading(RandomRecipesLoading value),
-    @required Result randomRecipesLoaded(RandomRecipesLoaded value),
-    @required Result randomRecipesError(RandomRecipesError value),
+    @required Result randomRecipeLoading(RandomRecipeLoading value),
+    @required Result randomRecipeLoaded(RandomRecipeLoaded value),
+    @required Result randomRecipeError(RandomRecipeError value),
     @required Result categoriesLoading(CategoriesLoading value),
     @required Result categoriesLoaded(CategoriesLoaded value),
     @required Result categoriesError(CategoriesError value),
@@ -337,9 +337,9 @@ mixin _$HomeState {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(Initial value),
-    Result randomRecipesLoading(RandomRecipesLoading value),
-    Result randomRecipesLoaded(RandomRecipesLoaded value),
-    Result randomRecipesError(RandomRecipesError value),
+    Result randomRecipeLoading(RandomRecipeLoading value),
+    Result randomRecipeLoaded(RandomRecipeLoaded value),
+    Result randomRecipeError(RandomRecipeError value),
     Result categoriesLoading(CategoriesLoading value),
     Result categoriesLoaded(CategoriesLoaded value),
     Result categoriesError(CategoriesError value),
@@ -400,17 +400,17 @@ class _$Initial with DiagnosticableTreeMixin implements Initial {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
-    @required Result randomRecipesLoading(),
-    @required Result randomRecipesLoaded(Recipes recipes),
-    @required Result randomRecipesError(ServerError serverError),
+    @required Result randomRecipeLoading(),
+    @required Result randomRecipeLoaded(Recipe recipe),
+    @required Result randomRecipeError(ServerError serverError),
     @required Result categoriesLoading(),
     @required Result categoriesLoaded(Categories categories),
     @required Result categoriesError(ServerError serverError),
   }) {
     assert(initial != null);
-    assert(randomRecipesLoading != null);
-    assert(randomRecipesLoaded != null);
-    assert(randomRecipesError != null);
+    assert(randomRecipeLoading != null);
+    assert(randomRecipeLoaded != null);
+    assert(randomRecipeError != null);
     assert(categoriesLoading != null);
     assert(categoriesLoaded != null);
     assert(categoriesError != null);
@@ -421,9 +421,9 @@ class _$Initial with DiagnosticableTreeMixin implements Initial {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
-    Result randomRecipesLoading(),
-    Result randomRecipesLoaded(Recipes recipes),
-    Result randomRecipesError(ServerError serverError),
+    Result randomRecipeLoading(),
+    Result randomRecipeLoaded(Recipe recipe),
+    Result randomRecipeError(ServerError serverError),
     Result categoriesLoading(),
     Result categoriesLoaded(Categories categories),
     Result categoriesError(ServerError serverError),
@@ -440,17 +440,17 @@ class _$Initial with DiagnosticableTreeMixin implements Initial {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(Initial value),
-    @required Result randomRecipesLoading(RandomRecipesLoading value),
-    @required Result randomRecipesLoaded(RandomRecipesLoaded value),
-    @required Result randomRecipesError(RandomRecipesError value),
+    @required Result randomRecipeLoading(RandomRecipeLoading value),
+    @required Result randomRecipeLoaded(RandomRecipeLoaded value),
+    @required Result randomRecipeError(RandomRecipeError value),
     @required Result categoriesLoading(CategoriesLoading value),
     @required Result categoriesLoaded(CategoriesLoaded value),
     @required Result categoriesError(CategoriesError value),
   }) {
     assert(initial != null);
-    assert(randomRecipesLoading != null);
-    assert(randomRecipesLoaded != null);
-    assert(randomRecipesError != null);
+    assert(randomRecipeLoading != null);
+    assert(randomRecipeLoaded != null);
+    assert(randomRecipeError != null);
     assert(categoriesLoading != null);
     assert(categoriesLoaded != null);
     assert(categoriesError != null);
@@ -461,9 +461,9 @@ class _$Initial with DiagnosticableTreeMixin implements Initial {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(Initial value),
-    Result randomRecipesLoading(RandomRecipesLoading value),
-    Result randomRecipesLoaded(RandomRecipesLoaded value),
-    Result randomRecipesError(RandomRecipesError value),
+    Result randomRecipeLoading(RandomRecipeLoading value),
+    Result randomRecipeLoaded(RandomRecipeLoaded value),
+    Result randomRecipeError(RandomRecipeError value),
     Result categoriesLoading(CategoriesLoading value),
     Result categoriesLoaded(CategoriesLoaded value),
     Result categoriesError(CategoriesError value),
@@ -481,43 +481,43 @@ abstract class Initial implements HomeState {
   const factory Initial() = _$Initial;
 }
 
-abstract class $RandomRecipesLoadingCopyWith<$Res> {
-  factory $RandomRecipesLoadingCopyWith(RandomRecipesLoading value,
-          $Res Function(RandomRecipesLoading) then) =
-      _$RandomRecipesLoadingCopyWithImpl<$Res>;
+abstract class $RandomRecipeLoadingCopyWith<$Res> {
+  factory $RandomRecipeLoadingCopyWith(
+          RandomRecipeLoading value, $Res Function(RandomRecipeLoading) then) =
+      _$RandomRecipeLoadingCopyWithImpl<$Res>;
 }
 
-class _$RandomRecipesLoadingCopyWithImpl<$Res>
+class _$RandomRecipeLoadingCopyWithImpl<$Res>
     extends _$HomeStateCopyWithImpl<$Res>
-    implements $RandomRecipesLoadingCopyWith<$Res> {
-  _$RandomRecipesLoadingCopyWithImpl(
-      RandomRecipesLoading _value, $Res Function(RandomRecipesLoading) _then)
-      : super(_value, (v) => _then(v as RandomRecipesLoading));
+    implements $RandomRecipeLoadingCopyWith<$Res> {
+  _$RandomRecipeLoadingCopyWithImpl(
+      RandomRecipeLoading _value, $Res Function(RandomRecipeLoading) _then)
+      : super(_value, (v) => _then(v as RandomRecipeLoading));
 
   @override
-  RandomRecipesLoading get _value => super._value as RandomRecipesLoading;
+  RandomRecipeLoading get _value => super._value as RandomRecipeLoading;
 }
 
-class _$RandomRecipesLoading
+class _$RandomRecipeLoading
     with DiagnosticableTreeMixin
-    implements RandomRecipesLoading {
-  const _$RandomRecipesLoading();
+    implements RandomRecipeLoading {
+  const _$RandomRecipeLoading();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'HomeState.randomRecipesLoading()';
+    return 'HomeState.randomRecipeLoading()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'HomeState.randomRecipesLoading'));
+      ..add(DiagnosticsProperty('type', 'HomeState.randomRecipeLoading'));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is RandomRecipesLoading);
+    return identical(this, other) || (other is RandomRecipeLoading);
   }
 
   @override
@@ -527,38 +527,38 @@ class _$RandomRecipesLoading
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
-    @required Result randomRecipesLoading(),
-    @required Result randomRecipesLoaded(Recipes recipes),
-    @required Result randomRecipesError(ServerError serverError),
+    @required Result randomRecipeLoading(),
+    @required Result randomRecipeLoaded(Recipe recipe),
+    @required Result randomRecipeError(ServerError serverError),
     @required Result categoriesLoading(),
     @required Result categoriesLoaded(Categories categories),
     @required Result categoriesError(ServerError serverError),
   }) {
     assert(initial != null);
-    assert(randomRecipesLoading != null);
-    assert(randomRecipesLoaded != null);
-    assert(randomRecipesError != null);
+    assert(randomRecipeLoading != null);
+    assert(randomRecipeLoaded != null);
+    assert(randomRecipeError != null);
     assert(categoriesLoading != null);
     assert(categoriesLoaded != null);
     assert(categoriesError != null);
-    return randomRecipesLoading();
+    return randomRecipeLoading();
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
-    Result randomRecipesLoading(),
-    Result randomRecipesLoaded(Recipes recipes),
-    Result randomRecipesError(ServerError serverError),
+    Result randomRecipeLoading(),
+    Result randomRecipeLoaded(Recipe recipe),
+    Result randomRecipeError(ServerError serverError),
     Result categoriesLoading(),
     Result categoriesLoaded(Categories categories),
     Result categoriesError(ServerError serverError),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (randomRecipesLoading != null) {
-      return randomRecipesLoading();
+    if (randomRecipeLoading != null) {
+      return randomRecipeLoading();
     }
     return orElse();
   }
@@ -567,148 +567,147 @@ class _$RandomRecipesLoading
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(Initial value),
-    @required Result randomRecipesLoading(RandomRecipesLoading value),
-    @required Result randomRecipesLoaded(RandomRecipesLoaded value),
-    @required Result randomRecipesError(RandomRecipesError value),
+    @required Result randomRecipeLoading(RandomRecipeLoading value),
+    @required Result randomRecipeLoaded(RandomRecipeLoaded value),
+    @required Result randomRecipeError(RandomRecipeError value),
     @required Result categoriesLoading(CategoriesLoading value),
     @required Result categoriesLoaded(CategoriesLoaded value),
     @required Result categoriesError(CategoriesError value),
   }) {
     assert(initial != null);
-    assert(randomRecipesLoading != null);
-    assert(randomRecipesLoaded != null);
-    assert(randomRecipesError != null);
+    assert(randomRecipeLoading != null);
+    assert(randomRecipeLoaded != null);
+    assert(randomRecipeError != null);
     assert(categoriesLoading != null);
     assert(categoriesLoaded != null);
     assert(categoriesError != null);
-    return randomRecipesLoading(this);
+    return randomRecipeLoading(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(Initial value),
-    Result randomRecipesLoading(RandomRecipesLoading value),
-    Result randomRecipesLoaded(RandomRecipesLoaded value),
-    Result randomRecipesError(RandomRecipesError value),
+    Result randomRecipeLoading(RandomRecipeLoading value),
+    Result randomRecipeLoaded(RandomRecipeLoaded value),
+    Result randomRecipeError(RandomRecipeError value),
     Result categoriesLoading(CategoriesLoading value),
     Result categoriesLoaded(CategoriesLoaded value),
     Result categoriesError(CategoriesError value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (randomRecipesLoading != null) {
-      return randomRecipesLoading(this);
+    if (randomRecipeLoading != null) {
+      return randomRecipeLoading(this);
     }
     return orElse();
   }
 }
 
-abstract class RandomRecipesLoading implements HomeState {
-  const factory RandomRecipesLoading() = _$RandomRecipesLoading;
+abstract class RandomRecipeLoading implements HomeState {
+  const factory RandomRecipeLoading() = _$RandomRecipeLoading;
 }
 
-abstract class $RandomRecipesLoadedCopyWith<$Res> {
-  factory $RandomRecipesLoadedCopyWith(
-          RandomRecipesLoaded value, $Res Function(RandomRecipesLoaded) then) =
-      _$RandomRecipesLoadedCopyWithImpl<$Res>;
-  $Res call({Recipes recipes});
+abstract class $RandomRecipeLoadedCopyWith<$Res> {
+  factory $RandomRecipeLoadedCopyWith(
+          RandomRecipeLoaded value, $Res Function(RandomRecipeLoaded) then) =
+      _$RandomRecipeLoadedCopyWithImpl<$Res>;
+  $Res call({Recipe recipe});
 }
 
-class _$RandomRecipesLoadedCopyWithImpl<$Res>
+class _$RandomRecipeLoadedCopyWithImpl<$Res>
     extends _$HomeStateCopyWithImpl<$Res>
-    implements $RandomRecipesLoadedCopyWith<$Res> {
-  _$RandomRecipesLoadedCopyWithImpl(
-      RandomRecipesLoaded _value, $Res Function(RandomRecipesLoaded) _then)
-      : super(_value, (v) => _then(v as RandomRecipesLoaded));
+    implements $RandomRecipeLoadedCopyWith<$Res> {
+  _$RandomRecipeLoadedCopyWithImpl(
+      RandomRecipeLoaded _value, $Res Function(RandomRecipeLoaded) _then)
+      : super(_value, (v) => _then(v as RandomRecipeLoaded));
 
   @override
-  RandomRecipesLoaded get _value => super._value as RandomRecipesLoaded;
+  RandomRecipeLoaded get _value => super._value as RandomRecipeLoaded;
 
   @override
   $Res call({
-    Object recipes = freezed,
+    Object recipe = freezed,
   }) {
-    return _then(RandomRecipesLoaded(
-      recipes: recipes == freezed ? _value.recipes : recipes as Recipes,
+    return _then(RandomRecipeLoaded(
+      recipe: recipe == freezed ? _value.recipe : recipe as Recipe,
     ));
   }
 }
 
-class _$RandomRecipesLoaded
+class _$RandomRecipeLoaded
     with DiagnosticableTreeMixin
-    implements RandomRecipesLoaded {
-  const _$RandomRecipesLoaded({@required this.recipes})
-      : assert(recipes != null);
+    implements RandomRecipeLoaded {
+  const _$RandomRecipeLoaded({@required this.recipe}) : assert(recipe != null);
 
   @override
-  final Recipes recipes;
+  final Recipe recipe;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'HomeState.randomRecipesLoaded(recipes: $recipes)';
+    return 'HomeState.randomRecipeLoaded(recipe: $recipe)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'HomeState.randomRecipesLoaded'))
-      ..add(DiagnosticsProperty('recipes', recipes));
+      ..add(DiagnosticsProperty('type', 'HomeState.randomRecipeLoaded'))
+      ..add(DiagnosticsProperty('recipe', recipe));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is RandomRecipesLoaded &&
-            (identical(other.recipes, recipes) ||
-                const DeepCollectionEquality().equals(other.recipes, recipes)));
+        (other is RandomRecipeLoaded &&
+            (identical(other.recipe, recipe) ||
+                const DeepCollectionEquality().equals(other.recipe, recipe)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(recipes);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(recipe);
 
   @override
-  $RandomRecipesLoadedCopyWith<RandomRecipesLoaded> get copyWith =>
-      _$RandomRecipesLoadedCopyWithImpl<RandomRecipesLoaded>(this, _$identity);
+  $RandomRecipeLoadedCopyWith<RandomRecipeLoaded> get copyWith =>
+      _$RandomRecipeLoadedCopyWithImpl<RandomRecipeLoaded>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
-    @required Result randomRecipesLoading(),
-    @required Result randomRecipesLoaded(Recipes recipes),
-    @required Result randomRecipesError(ServerError serverError),
+    @required Result randomRecipeLoading(),
+    @required Result randomRecipeLoaded(Recipe recipe),
+    @required Result randomRecipeError(ServerError serverError),
     @required Result categoriesLoading(),
     @required Result categoriesLoaded(Categories categories),
     @required Result categoriesError(ServerError serverError),
   }) {
     assert(initial != null);
-    assert(randomRecipesLoading != null);
-    assert(randomRecipesLoaded != null);
-    assert(randomRecipesError != null);
+    assert(randomRecipeLoading != null);
+    assert(randomRecipeLoaded != null);
+    assert(randomRecipeError != null);
     assert(categoriesLoading != null);
     assert(categoriesLoaded != null);
     assert(categoriesError != null);
-    return randomRecipesLoaded(recipes);
+    return randomRecipeLoaded(recipe);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
-    Result randomRecipesLoading(),
-    Result randomRecipesLoaded(Recipes recipes),
-    Result randomRecipesError(ServerError serverError),
+    Result randomRecipeLoading(),
+    Result randomRecipeLoaded(Recipe recipe),
+    Result randomRecipeError(ServerError serverError),
     Result categoriesLoading(),
     Result categoriesLoaded(Categories categories),
     Result categoriesError(ServerError serverError),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (randomRecipesLoaded != null) {
-      return randomRecipesLoaded(recipes);
+    if (randomRecipeLoaded != null) {
+      return randomRecipeLoaded(recipe);
     }
     return orElse();
   }
@@ -717,73 +716,73 @@ class _$RandomRecipesLoaded
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(Initial value),
-    @required Result randomRecipesLoading(RandomRecipesLoading value),
-    @required Result randomRecipesLoaded(RandomRecipesLoaded value),
-    @required Result randomRecipesError(RandomRecipesError value),
+    @required Result randomRecipeLoading(RandomRecipeLoading value),
+    @required Result randomRecipeLoaded(RandomRecipeLoaded value),
+    @required Result randomRecipeError(RandomRecipeError value),
     @required Result categoriesLoading(CategoriesLoading value),
     @required Result categoriesLoaded(CategoriesLoaded value),
     @required Result categoriesError(CategoriesError value),
   }) {
     assert(initial != null);
-    assert(randomRecipesLoading != null);
-    assert(randomRecipesLoaded != null);
-    assert(randomRecipesError != null);
+    assert(randomRecipeLoading != null);
+    assert(randomRecipeLoaded != null);
+    assert(randomRecipeError != null);
     assert(categoriesLoading != null);
     assert(categoriesLoaded != null);
     assert(categoriesError != null);
-    return randomRecipesLoaded(this);
+    return randomRecipeLoaded(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(Initial value),
-    Result randomRecipesLoading(RandomRecipesLoading value),
-    Result randomRecipesLoaded(RandomRecipesLoaded value),
-    Result randomRecipesError(RandomRecipesError value),
+    Result randomRecipeLoading(RandomRecipeLoading value),
+    Result randomRecipeLoaded(RandomRecipeLoaded value),
+    Result randomRecipeError(RandomRecipeError value),
     Result categoriesLoading(CategoriesLoading value),
     Result categoriesLoaded(CategoriesLoaded value),
     Result categoriesError(CategoriesError value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (randomRecipesLoaded != null) {
-      return randomRecipesLoaded(this);
+    if (randomRecipeLoaded != null) {
+      return randomRecipeLoaded(this);
     }
     return orElse();
   }
 }
 
-abstract class RandomRecipesLoaded implements HomeState {
-  const factory RandomRecipesLoaded({@required Recipes recipes}) =
-      _$RandomRecipesLoaded;
+abstract class RandomRecipeLoaded implements HomeState {
+  const factory RandomRecipeLoaded({@required Recipe recipe}) =
+      _$RandomRecipeLoaded;
 
-  Recipes get recipes;
-  $RandomRecipesLoadedCopyWith<RandomRecipesLoaded> get copyWith;
+  Recipe get recipe;
+  $RandomRecipeLoadedCopyWith<RandomRecipeLoaded> get copyWith;
 }
 
-abstract class $RandomRecipesErrorCopyWith<$Res> {
-  factory $RandomRecipesErrorCopyWith(
-          RandomRecipesError value, $Res Function(RandomRecipesError) then) =
-      _$RandomRecipesErrorCopyWithImpl<$Res>;
+abstract class $RandomRecipeErrorCopyWith<$Res> {
+  factory $RandomRecipeErrorCopyWith(
+          RandomRecipeError value, $Res Function(RandomRecipeError) then) =
+      _$RandomRecipeErrorCopyWithImpl<$Res>;
   $Res call({ServerError serverError});
 }
 
-class _$RandomRecipesErrorCopyWithImpl<$Res>
+class _$RandomRecipeErrorCopyWithImpl<$Res>
     extends _$HomeStateCopyWithImpl<$Res>
-    implements $RandomRecipesErrorCopyWith<$Res> {
-  _$RandomRecipesErrorCopyWithImpl(
-      RandomRecipesError _value, $Res Function(RandomRecipesError) _then)
-      : super(_value, (v) => _then(v as RandomRecipesError));
+    implements $RandomRecipeErrorCopyWith<$Res> {
+  _$RandomRecipeErrorCopyWithImpl(
+      RandomRecipeError _value, $Res Function(RandomRecipeError) _then)
+      : super(_value, (v) => _then(v as RandomRecipeError));
 
   @override
-  RandomRecipesError get _value => super._value as RandomRecipesError;
+  RandomRecipeError get _value => super._value as RandomRecipeError;
 
   @override
   $Res call({
     Object serverError = freezed,
   }) {
-    return _then(RandomRecipesError(
+    return _then(RandomRecipeError(
       serverError: serverError == freezed
           ? _value.serverError
           : serverError as ServerError,
@@ -791,10 +790,10 @@ class _$RandomRecipesErrorCopyWithImpl<$Res>
   }
 }
 
-class _$RandomRecipesError
+class _$RandomRecipeError
     with DiagnosticableTreeMixin
-    implements RandomRecipesError {
-  const _$RandomRecipesError({@required this.serverError})
+    implements RandomRecipeError {
+  const _$RandomRecipeError({@required this.serverError})
       : assert(serverError != null);
 
   @override
@@ -802,21 +801,21 @@ class _$RandomRecipesError
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'HomeState.randomRecipesError(serverError: $serverError)';
+    return 'HomeState.randomRecipeError(serverError: $serverError)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'HomeState.randomRecipesError'))
+      ..add(DiagnosticsProperty('type', 'HomeState.randomRecipeError'))
       ..add(DiagnosticsProperty('serverError', serverError));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is RandomRecipesError &&
+        (other is RandomRecipeError &&
             (identical(other.serverError, serverError) ||
                 const DeepCollectionEquality()
                     .equals(other.serverError, serverError)));
@@ -827,45 +826,45 @@ class _$RandomRecipesError
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(serverError);
 
   @override
-  $RandomRecipesErrorCopyWith<RandomRecipesError> get copyWith =>
-      _$RandomRecipesErrorCopyWithImpl<RandomRecipesError>(this, _$identity);
+  $RandomRecipeErrorCopyWith<RandomRecipeError> get copyWith =>
+      _$RandomRecipeErrorCopyWithImpl<RandomRecipeError>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
-    @required Result randomRecipesLoading(),
-    @required Result randomRecipesLoaded(Recipes recipes),
-    @required Result randomRecipesError(ServerError serverError),
+    @required Result randomRecipeLoading(),
+    @required Result randomRecipeLoaded(Recipe recipe),
+    @required Result randomRecipeError(ServerError serverError),
     @required Result categoriesLoading(),
     @required Result categoriesLoaded(Categories categories),
     @required Result categoriesError(ServerError serverError),
   }) {
     assert(initial != null);
-    assert(randomRecipesLoading != null);
-    assert(randomRecipesLoaded != null);
-    assert(randomRecipesError != null);
+    assert(randomRecipeLoading != null);
+    assert(randomRecipeLoaded != null);
+    assert(randomRecipeError != null);
     assert(categoriesLoading != null);
     assert(categoriesLoaded != null);
     assert(categoriesError != null);
-    return randomRecipesError(serverError);
+    return randomRecipeError(serverError);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
-    Result randomRecipesLoading(),
-    Result randomRecipesLoaded(Recipes recipes),
-    Result randomRecipesError(ServerError serverError),
+    Result randomRecipeLoading(),
+    Result randomRecipeLoaded(Recipe recipe),
+    Result randomRecipeError(ServerError serverError),
     Result categoriesLoading(),
     Result categoriesLoaded(Categories categories),
     Result categoriesError(ServerError serverError),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (randomRecipesError != null) {
-      return randomRecipesError(serverError);
+    if (randomRecipeError != null) {
+      return randomRecipeError(serverError);
     }
     return orElse();
   }
@@ -874,49 +873,49 @@ class _$RandomRecipesError
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(Initial value),
-    @required Result randomRecipesLoading(RandomRecipesLoading value),
-    @required Result randomRecipesLoaded(RandomRecipesLoaded value),
-    @required Result randomRecipesError(RandomRecipesError value),
+    @required Result randomRecipeLoading(RandomRecipeLoading value),
+    @required Result randomRecipeLoaded(RandomRecipeLoaded value),
+    @required Result randomRecipeError(RandomRecipeError value),
     @required Result categoriesLoading(CategoriesLoading value),
     @required Result categoriesLoaded(CategoriesLoaded value),
     @required Result categoriesError(CategoriesError value),
   }) {
     assert(initial != null);
-    assert(randomRecipesLoading != null);
-    assert(randomRecipesLoaded != null);
-    assert(randomRecipesError != null);
+    assert(randomRecipeLoading != null);
+    assert(randomRecipeLoaded != null);
+    assert(randomRecipeError != null);
     assert(categoriesLoading != null);
     assert(categoriesLoaded != null);
     assert(categoriesError != null);
-    return randomRecipesError(this);
+    return randomRecipeError(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(Initial value),
-    Result randomRecipesLoading(RandomRecipesLoading value),
-    Result randomRecipesLoaded(RandomRecipesLoaded value),
-    Result randomRecipesError(RandomRecipesError value),
+    Result randomRecipeLoading(RandomRecipeLoading value),
+    Result randomRecipeLoaded(RandomRecipeLoaded value),
+    Result randomRecipeError(RandomRecipeError value),
     Result categoriesLoading(CategoriesLoading value),
     Result categoriesLoaded(CategoriesLoaded value),
     Result categoriesError(CategoriesError value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (randomRecipesError != null) {
-      return randomRecipesError(this);
+    if (randomRecipeError != null) {
+      return randomRecipeError(this);
     }
     return orElse();
   }
 }
 
-abstract class RandomRecipesError implements HomeState {
-  const factory RandomRecipesError({@required ServerError serverError}) =
-      _$RandomRecipesError;
+abstract class RandomRecipeError implements HomeState {
+  const factory RandomRecipeError({@required ServerError serverError}) =
+      _$RandomRecipeError;
 
   ServerError get serverError;
-  $RandomRecipesErrorCopyWith<RandomRecipesError> get copyWith;
+  $RandomRecipeErrorCopyWith<RandomRecipeError> get copyWith;
 }
 
 abstract class $CategoriesLoadingCopyWith<$Res> {
@@ -964,17 +963,17 @@ class _$CategoriesLoading
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
-    @required Result randomRecipesLoading(),
-    @required Result randomRecipesLoaded(Recipes recipes),
-    @required Result randomRecipesError(ServerError serverError),
+    @required Result randomRecipeLoading(),
+    @required Result randomRecipeLoaded(Recipe recipe),
+    @required Result randomRecipeError(ServerError serverError),
     @required Result categoriesLoading(),
     @required Result categoriesLoaded(Categories categories),
     @required Result categoriesError(ServerError serverError),
   }) {
     assert(initial != null);
-    assert(randomRecipesLoading != null);
-    assert(randomRecipesLoaded != null);
-    assert(randomRecipesError != null);
+    assert(randomRecipeLoading != null);
+    assert(randomRecipeLoaded != null);
+    assert(randomRecipeError != null);
     assert(categoriesLoading != null);
     assert(categoriesLoaded != null);
     assert(categoriesError != null);
@@ -985,9 +984,9 @@ class _$CategoriesLoading
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
-    Result randomRecipesLoading(),
-    Result randomRecipesLoaded(Recipes recipes),
-    Result randomRecipesError(ServerError serverError),
+    Result randomRecipeLoading(),
+    Result randomRecipeLoaded(Recipe recipe),
+    Result randomRecipeError(ServerError serverError),
     Result categoriesLoading(),
     Result categoriesLoaded(Categories categories),
     Result categoriesError(ServerError serverError),
@@ -1004,17 +1003,17 @@ class _$CategoriesLoading
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(Initial value),
-    @required Result randomRecipesLoading(RandomRecipesLoading value),
-    @required Result randomRecipesLoaded(RandomRecipesLoaded value),
-    @required Result randomRecipesError(RandomRecipesError value),
+    @required Result randomRecipeLoading(RandomRecipeLoading value),
+    @required Result randomRecipeLoaded(RandomRecipeLoaded value),
+    @required Result randomRecipeError(RandomRecipeError value),
     @required Result categoriesLoading(CategoriesLoading value),
     @required Result categoriesLoaded(CategoriesLoaded value),
     @required Result categoriesError(CategoriesError value),
   }) {
     assert(initial != null);
-    assert(randomRecipesLoading != null);
-    assert(randomRecipesLoaded != null);
-    assert(randomRecipesError != null);
+    assert(randomRecipeLoading != null);
+    assert(randomRecipeLoaded != null);
+    assert(randomRecipeError != null);
     assert(categoriesLoading != null);
     assert(categoriesLoaded != null);
     assert(categoriesError != null);
@@ -1025,9 +1024,9 @@ class _$CategoriesLoading
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(Initial value),
-    Result randomRecipesLoading(RandomRecipesLoading value),
-    Result randomRecipesLoaded(RandomRecipesLoaded value),
-    Result randomRecipesError(RandomRecipesError value),
+    Result randomRecipeLoading(RandomRecipeLoading value),
+    Result randomRecipeLoaded(RandomRecipeLoaded value),
+    Result randomRecipeError(RandomRecipeError value),
     Result categoriesLoading(CategoriesLoading value),
     Result categoriesLoaded(CategoriesLoaded value),
     Result categoriesError(CategoriesError value),
@@ -1115,17 +1114,17 @@ class _$CategoriesLoaded
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
-    @required Result randomRecipesLoading(),
-    @required Result randomRecipesLoaded(Recipes recipes),
-    @required Result randomRecipesError(ServerError serverError),
+    @required Result randomRecipeLoading(),
+    @required Result randomRecipeLoaded(Recipe recipe),
+    @required Result randomRecipeError(ServerError serverError),
     @required Result categoriesLoading(),
     @required Result categoriesLoaded(Categories categories),
     @required Result categoriesError(ServerError serverError),
   }) {
     assert(initial != null);
-    assert(randomRecipesLoading != null);
-    assert(randomRecipesLoaded != null);
-    assert(randomRecipesError != null);
+    assert(randomRecipeLoading != null);
+    assert(randomRecipeLoaded != null);
+    assert(randomRecipeError != null);
     assert(categoriesLoading != null);
     assert(categoriesLoaded != null);
     assert(categoriesError != null);
@@ -1136,9 +1135,9 @@ class _$CategoriesLoaded
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
-    Result randomRecipesLoading(),
-    Result randomRecipesLoaded(Recipes recipes),
-    Result randomRecipesError(ServerError serverError),
+    Result randomRecipeLoading(),
+    Result randomRecipeLoaded(Recipe recipe),
+    Result randomRecipeError(ServerError serverError),
     Result categoriesLoading(),
     Result categoriesLoaded(Categories categories),
     Result categoriesError(ServerError serverError),
@@ -1155,17 +1154,17 @@ class _$CategoriesLoaded
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(Initial value),
-    @required Result randomRecipesLoading(RandomRecipesLoading value),
-    @required Result randomRecipesLoaded(RandomRecipesLoaded value),
-    @required Result randomRecipesError(RandomRecipesError value),
+    @required Result randomRecipeLoading(RandomRecipeLoading value),
+    @required Result randomRecipeLoaded(RandomRecipeLoaded value),
+    @required Result randomRecipeError(RandomRecipeError value),
     @required Result categoriesLoading(CategoriesLoading value),
     @required Result categoriesLoaded(CategoriesLoaded value),
     @required Result categoriesError(CategoriesError value),
   }) {
     assert(initial != null);
-    assert(randomRecipesLoading != null);
-    assert(randomRecipesLoaded != null);
-    assert(randomRecipesError != null);
+    assert(randomRecipeLoading != null);
+    assert(randomRecipeLoaded != null);
+    assert(randomRecipeError != null);
     assert(categoriesLoading != null);
     assert(categoriesLoaded != null);
     assert(categoriesError != null);
@@ -1176,9 +1175,9 @@ class _$CategoriesLoaded
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(Initial value),
-    Result randomRecipesLoading(RandomRecipesLoading value),
-    Result randomRecipesLoaded(RandomRecipesLoaded value),
-    Result randomRecipesError(RandomRecipesError value),
+    Result randomRecipeLoading(RandomRecipeLoading value),
+    Result randomRecipeLoaded(RandomRecipeLoaded value),
+    Result randomRecipeError(RandomRecipeError value),
     Result categoriesLoading(CategoriesLoading value),
     Result categoriesLoaded(CategoriesLoaded value),
     Result categoriesError(CategoriesError value),
@@ -1271,17 +1270,17 @@ class _$CategoriesError
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
-    @required Result randomRecipesLoading(),
-    @required Result randomRecipesLoaded(Recipes recipes),
-    @required Result randomRecipesError(ServerError serverError),
+    @required Result randomRecipeLoading(),
+    @required Result randomRecipeLoaded(Recipe recipe),
+    @required Result randomRecipeError(ServerError serverError),
     @required Result categoriesLoading(),
     @required Result categoriesLoaded(Categories categories),
     @required Result categoriesError(ServerError serverError),
   }) {
     assert(initial != null);
-    assert(randomRecipesLoading != null);
-    assert(randomRecipesLoaded != null);
-    assert(randomRecipesError != null);
+    assert(randomRecipeLoading != null);
+    assert(randomRecipeLoaded != null);
+    assert(randomRecipeError != null);
     assert(categoriesLoading != null);
     assert(categoriesLoaded != null);
     assert(categoriesError != null);
@@ -1292,9 +1291,9 @@ class _$CategoriesError
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
-    Result randomRecipesLoading(),
-    Result randomRecipesLoaded(Recipes recipes),
-    Result randomRecipesError(ServerError serverError),
+    Result randomRecipeLoading(),
+    Result randomRecipeLoaded(Recipe recipe),
+    Result randomRecipeError(ServerError serverError),
     Result categoriesLoading(),
     Result categoriesLoaded(Categories categories),
     Result categoriesError(ServerError serverError),
@@ -1311,17 +1310,17 @@ class _$CategoriesError
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(Initial value),
-    @required Result randomRecipesLoading(RandomRecipesLoading value),
-    @required Result randomRecipesLoaded(RandomRecipesLoaded value),
-    @required Result randomRecipesError(RandomRecipesError value),
+    @required Result randomRecipeLoading(RandomRecipeLoading value),
+    @required Result randomRecipeLoaded(RandomRecipeLoaded value),
+    @required Result randomRecipeError(RandomRecipeError value),
     @required Result categoriesLoading(CategoriesLoading value),
     @required Result categoriesLoaded(CategoriesLoaded value),
     @required Result categoriesError(CategoriesError value),
   }) {
     assert(initial != null);
-    assert(randomRecipesLoading != null);
-    assert(randomRecipesLoaded != null);
-    assert(randomRecipesError != null);
+    assert(randomRecipeLoading != null);
+    assert(randomRecipeLoaded != null);
+    assert(randomRecipeError != null);
     assert(categoriesLoading != null);
     assert(categoriesLoaded != null);
     assert(categoriesError != null);
@@ -1332,9 +1331,9 @@ class _$CategoriesError
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(Initial value),
-    Result randomRecipesLoading(RandomRecipesLoading value),
-    Result randomRecipesLoaded(RandomRecipesLoaded value),
-    Result randomRecipesError(RandomRecipesError value),
+    Result randomRecipeLoading(RandomRecipeLoading value),
+    Result randomRecipeLoaded(RandomRecipeLoaded value),
+    Result randomRecipeError(RandomRecipeError value),
     Result categoriesLoading(CategoriesLoading value),
     Result categoriesLoaded(CategoriesLoaded value),
     Result categoriesError(CategoriesError value),
