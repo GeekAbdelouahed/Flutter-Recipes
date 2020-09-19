@@ -19,6 +19,7 @@ class _MyAppState extends State<MyApp> {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.blue,
+          accentColor: Colors.pinkAccent,
           scaffoldBackgroundColor: Colors.grey[200],
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),

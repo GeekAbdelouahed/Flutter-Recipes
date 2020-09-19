@@ -19,6 +19,13 @@ class RecipeScreen extends StatefulWidget {
 
 class _RecipeScreenState extends State<RecipeScreen> {
   final _bloc = RecipeBloc();
+  bool _isFavorite = false;
+
+  void _tapFavorite() {
+    setState(() {
+      _isFavorite = !_isFavorite;
+    });
+  }
 
   void _watchVideo(videoUrl) {
     Navigator.push(
@@ -52,8 +59,44 @@ class _RecipeScreenState extends State<RecipeScreen> {
                     SliverAppBar(
                       elevation: 0,
                       expandedHeight: 250,
-                      floating: true,
                       backgroundColor: Colors.transparent,
+                      leading: Align(
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.white,
+                            ),
+                            child: Icon(
+                              Icons.arrow_back_ios,
+                              color: Theme.of(context).accentColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                      actions: [
+                        InkWell(
+                          onTap: _tapFavorite,
+                          child: Container(
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.white,
+                            ),
+                            child: Icon(
+                              _isFavorite
+                                  ? Icons.favorite
+                                  : Icons.favorite_border,
+                              color: Theme.of(context).accentColor,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                      ],
                     ),
                     SliverToBoxAdapter(
                       child: Container(
@@ -159,7 +202,7 @@ class _RecipeScreenState extends State<RecipeScreen> {
         widgets.add(
           ListTile(
             title: Text('$measure $ingredient'),
-            trailing: Container(
+            leading: Container(
               height: 40,
               width: 40,
               padding: const EdgeInsets.all(5),

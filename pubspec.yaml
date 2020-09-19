@@ -37,12 +37,15 @@ dependencies:
   dartz: ^0.9.1
   json_serializable: ^3.4.1
   youtube_player_flutter: ^7.0.0+7
+  hive: ^1.4.4
+  hive_flutter: ^0.3.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner:
   freezed:
+  hive_generator:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
