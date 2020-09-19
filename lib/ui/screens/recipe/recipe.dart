@@ -139,17 +139,14 @@ class _RecipeScreenState extends State<RecipeScreen> {
                                     ? Container(
                                         decoration: BoxDecoration(
                                           shape: BoxShape.circle,
-                                          color: Colors.grey[200],
+                                          color: Colors.grey[100],
                                         ),
                                         child: IconButton(
                                           onPressed: () {
                                             _watchVideo(recipe.video);
                                           },
-                                          icon: Icon(
-                                            Icons.video_library,
-                                            color:
-                                                Theme.of(context).accentColor,
-                                          ),
+                                          icon: Icon(Icons.video_library),
+                                          tooltip: 'watch video',
                                         ),
                                       )
                                     : const SizedBox(),
@@ -177,7 +174,11 @@ class _RecipeScreenState extends State<RecipeScreen> {
                             const SizedBox(height: 5),
                             Text(
                               recipe.instructions,
-                              style: Theme.of(context).textTheme.bodyText1,
+                              style: TextStyle(
+                                color: Colors.grey[700],
+                                wordSpacing: 2.5,
+                                height: 1.5,
+                              ),
                             ),
                             const SizedBox(height: 25),
                           ],
@@ -193,36 +194,32 @@ class _RecipeScreenState extends State<RecipeScreen> {
         ),
       );
 
-  List<Widget> _getIngredients(Recipe recipe) {
-    List<Widget> widgets = [];
-    for (int i = 1; i <= 20; i++) {
-      String ingredient = recipe.toJson()['strIngredient$i'];
-      String measure = recipe.toJson()['strMeasure$i'];
-      if (ingredient != null && ingredient.isNotEmpty) {
-        widgets.add(
-          ListTile(
-            title: Text('$measure $ingredient'),
-            leading: Container(
-              height: 40,
-              width: 40,
-              padding: const EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                color: Colors.grey[200],
-                shape: BoxShape.circle,
-              ),
-              child: CachedNetworkImage(
-                imageUrl:
-                    '${AppConstants.HOST}images/ingredients/$ingredient-Small.png',
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-        );
-      }
-    }
-
-    return widgets;
-  }
+  List<Widget> _getIngredients(Recipe recipe) => List.generate(
+        20,
+        (index) {
+          String ingredient = recipe.toJson()['strIngredient$index'];
+          String measure = recipe.toJson()['strMeasure$index'];
+          return (ingredient != null && ingredient.isNotEmpty)
+              ? ListTile(
+                  title: Text('$measure $ingredient'),
+                  leading: Container(
+                    height: 40,
+                    width: 40,
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      shape: BoxShape.circle,
+                    ),
+                    child: CachedNetworkImage(
+                      imageUrl:
+                          '${AppConstants.HOST}images/ingredients/$ingredient-Small.png',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                )
+              : const SizedBox();
+        },
+      ).toList();
 
   @override
   void dispose() {
