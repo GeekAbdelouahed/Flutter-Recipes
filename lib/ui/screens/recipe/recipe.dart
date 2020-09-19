@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:recipes/ui/screens/category/category.dart';
 
 import '../../../config/constants.dart';
 import '../../../models/recipes/recipe.dart';
@@ -20,6 +21,17 @@ class RecipeScreen extends StatefulWidget {
 class _RecipeScreenState extends State<RecipeScreen> {
   final _bloc = RecipeBloc();
   bool _isFavorite = false;
+
+  void _tapCategory(String categoryName) {
+    Navigator.push(
+      context,
+      CupertinoPageRoute(
+        builder: (_) => CategoryScreen(
+          categoryName: categoryName,
+        ),
+      ),
+    );
+  }
 
   void _tapFavorite() {
     setState(() {
@@ -152,6 +164,19 @@ class _RecipeScreenState extends State<RecipeScreen> {
                                     : const SizedBox(),
                               ],
                             ),
+                            InkWell(
+                              onTap: () {
+                                _tapCategory(recipe.category);
+                              },
+                              child: Text(
+                                recipe.category.toLowerCase(),
+                                style: TextStyle(
+                                  color: Theme.of(context).accentColor,
+                                  fontSize: 12.5,
+                                  fontWeight: FontWeight.w900,
+                                ),
+                              ),
+                            ),
                             const SizedBox(height: 25),
                             Text(
                               'Ingredients',
@@ -175,7 +200,7 @@ class _RecipeScreenState extends State<RecipeScreen> {
                             Text(
                               recipe.instructions,
                               style: TextStyle(
-                                color: Colors.grey[700],
+                                color: Colors.grey[800],
                                 wordSpacing: 2.5,
                                 height: 1.5,
                               ),

@@ -46,7 +46,7 @@ class _RecipeItemState extends State<RecipeItem> {
               alignment: Alignment.bottomLeft,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: Text(
-                widget.recipe.title.toUpperCase(),
+                widget.recipe.title,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(

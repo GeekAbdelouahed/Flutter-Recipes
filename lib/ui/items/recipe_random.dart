@@ -42,7 +42,7 @@ class _RecipeRandomItemState extends State<RecipeRandomItem> {
               top: 0,
               left: 0,
               right: 0,
-              bottom: 30,
+              bottom: 15,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Stack(
@@ -85,9 +85,7 @@ class _RecipeRandomItemState extends State<RecipeRandomItem> {
                         onPressed: _tapFavorite,
                         color: Colors.white,
                         icon: Icon(
-                          _isFavorite
-                              ? Icons.favorite
-                              : Icons.favorite_border,
+                          _isFavorite ? Icons.favorite : Icons.favorite_border,
                         ),
                       ),
                     ),
@@ -101,18 +99,21 @@ class _RecipeRandomItemState extends State<RecipeRandomItem> {
               left: 20,
               child: Container(
                 alignment: Alignment.center,
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 10,
+                ),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Text(
-                  widget.recipe.title.toUpperCase(),
+                  widget.recipe.title,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 15,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

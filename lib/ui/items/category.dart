@@ -10,11 +10,14 @@ class CategoryItem extends StatelessWidget {
   void _onTap(BuildContext context) {
     Navigator.push(
       context,
-      CupertinoPageRoute(builder: (_) => CategoryScreen(category: category)),
+      CupertinoPageRoute(
+        builder: (_) => CategoryScreen(categoryName: category.name),
+      ),
     );
   }
 
   const CategoryItem({Key key, @required this.category}) : super(key: key);
+
   @override
   Widget build(BuildContext context) => Card(
         clipBehavior: Clip.antiAlias,
@@ -22,7 +25,7 @@ class CategoryItem extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         child: ListTile(
           title: Text(
-            category.name.toUpperCase(),
+            category.name,
             style: TextStyle(
               color: Colors.black87,
               fontWeight: FontWeight.bold,

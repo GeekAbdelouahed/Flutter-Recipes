@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:recipes/services/network.dart';
 
 import 'ui/screens/home/home.dart';
@@ -18,10 +19,17 @@ class _MyAppState extends State<MyApp> {
         title: 'Flutter Recipes',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primarySwatch: Colors.blue,
-          accentColor: Colors.pinkAccent,
+          primarySwatch: Colors.red,
           scaffoldBackgroundColor: Colors.grey[200],
           visualDensity: VisualDensity.adaptivePlatformDensity,
+          appBarTheme: AppBarTheme(
+            textTheme: GoogleFonts.latoTextTheme(
+              Theme.of(context).textTheme,
+            ).apply(bodyColor: Colors.white),
+          ),
+          textTheme: GoogleFonts.latoTextTheme(
+            Theme.of(context).textTheme,
+          ),
         ),
         home: HomeScreen(),
       );
