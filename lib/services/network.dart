@@ -5,7 +5,7 @@ import '../models/server_error.dart';
 import '../config/constants.dart';
 
 class AppNetwork {
-  final _dio = Dio();
+  final _dio = Dio(BaseOptions(baseUrl: AppConstants.API));
 
   AppNetwork._();
 
@@ -21,12 +21,8 @@ class AppNetwork {
     Map<String, String> queries,
   }) async {
     try {
-      Response response = await _dio
-          .get(
-        AppConstants.API + path,
-        queryParameters: queries,
-      )
-          .catchError((error) {
+      Response response =
+          await _dio.get(path, queryParameters: queries).catchError((error) {
         return left(ServerError(message: '$error'));
       });
 
