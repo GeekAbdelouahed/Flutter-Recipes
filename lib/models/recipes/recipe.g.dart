@@ -3,6 +3,40 @@
 part of 'recipe.dart';
 
 // **************************************************************************
+// TypeAdapterGenerator
+// **************************************************************************
+
+class RecipeAdapter extends TypeAdapter<Recipe> {
+  @override
+  Recipe read(BinaryReader reader) {
+    var numOfFields = reader.readByte();
+    var fields = <int, dynamic>{
+      for (var i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return Recipe(
+      id: fields[0] as dynamic,
+      title: fields[1] as dynamic,
+      image: fields[2] as dynamic,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, Recipe obj) {
+    writer
+      ..writeByte(3)
+      ..writeByte(0)
+      ..write(obj.id)
+      ..writeByte(1)
+      ..write(obj.title)
+      ..writeByte(2)
+      ..write(obj.image);
+  }
+
+  @override
+  int get typeId => 1;
+}
+
+// **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:recipes/services/network.dart';
+import 'package:recipes/services/hive.dart';
+import 'package:recipes/ui/screens/home/home.dart';
 
-import 'ui/screens/home/home.dart';
+import 'services/network.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await AppHive.instance.init();
   runApp(MyApp());
 }
 
@@ -37,6 +40,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void dispose() {
     AppNetwork.instance.close();
+    AppHive.instance.close();
     super.dispose();
   }
 }

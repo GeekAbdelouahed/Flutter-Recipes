@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recipes/models/recipes/recipe.dart';
+import 'package:recipes/services/hive.dart';
 import 'package:recipes/ui/screens/recipe/recipe.dart';
 
 class RecipeRandomItem extends StatefulWidget {
@@ -20,6 +21,11 @@ class _RecipeRandomItemState extends State<RecipeRandomItem> {
     setState(() {
       _isFavorite = !_isFavorite;
     });
+
+    if (_isFavorite)
+      AppHive.instance.insert(widget.recipe);
+    else
+      AppHive.instance.delete(widget.recipe);
   }
 
   void _onTap() {
@@ -31,6 +37,13 @@ class _RecipeRandomItemState extends State<RecipeRandomItem> {
         ),
       ),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    // check is favorite
+    _isFavorite = AppHive.instance.isExist(widget.recipe.id);
   }
 
   @override

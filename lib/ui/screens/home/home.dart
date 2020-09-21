@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:recipes/ui/screens/favorite/favorite.dart';
 
 import '../../../ui/items/category.dart';
 import '../../../ui/items/recipe_random.dart';
@@ -41,6 +42,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 title: Text('Recipes'),
                 actions: [
                   IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        CupertinoPageRoute(builder: (_) => FavoriteScreen()),
+                      );
+                    },
+                    icon: Icon(Icons.favorite_border),
+                  ),
+                  IconButton(
                     onPressed: () {},
                     icon: Icon(Icons.search),
                   ),
@@ -54,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     bottom: 5,
                   ),
                   child: Text(
-                    'RANDOM RECIPES',
+                    'RANDOM RECIPE',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 20,

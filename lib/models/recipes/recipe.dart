@@ -1,15 +1,20 @@
+import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'recipe.g.dart';
 
+@HiveType()
 @JsonSerializable(nullable: false)
 class Recipe {
+  @HiveField(0)
   @JsonKey(name: 'idMeal')
   final id;
+  @HiveField(1)
   @JsonKey(name: 'strMeal')
   final title;
   @JsonKey(name: 'strInstructions')
   final instructions;
+  @HiveField(2)
   @JsonKey(name: 'strMealThumb')
   final image;
   @JsonKey(name: 'strTags')
