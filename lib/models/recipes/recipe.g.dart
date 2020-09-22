@@ -33,7 +33,7 @@ class RecipeAdapter extends TypeAdapter<Recipe> {
   }
 
   @override
-  int get typeId => 1;
+  int get typeId => 0;
 }
 
 // **************************************************************************

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recipes/ui/screens/favorite/favorite.dart';
+import 'package:recipes/ui/screens/search/search.dart';
 
 import '../../../ui/items/category.dart';
 import '../../../ui/items/recipe_random.dart';
@@ -51,7 +52,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     icon: Icon(Icons.favorite_border),
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      showSearch(
+                        context: context,
+                        delegate: SearchScreen(),
+                      );
+                    },
                     icon: Icon(Icons.search),
                   ),
                 ],
