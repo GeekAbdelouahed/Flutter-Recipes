@@ -1,7 +1,8 @@
 # Flutter Recipes
 
-<kbd><img src="https://github.com/GeekAbdelouahed/Flutter-Recipes/blob/master/screenshot/0.jpg" width="350"></kbd>
-<kbd><img src="https://github.com/GeekAbdelouahed/Flutter-Recipes/blob/master/screenshot/1.jpg" width="350"></kbd>
+<kbd><img src="https://github.com/GeekAbdelouahed/Flutter-Recipes/blob/master/screenshot/0.jpg" width="300"></kbd>
+<kbd><img src="https://github.com/GeekAbdelouahed/Flutter-Recipes/blob/master/screenshot/1.jpg" width="300"></kbd>
+<kbd><img src="https://github.com/GeekAbdelouahed/Flutter-Recipes/blob/master/screenshot/2.jpg" width="300"></kbd>
 
 ## 🔌 Plugins
 | Name |
