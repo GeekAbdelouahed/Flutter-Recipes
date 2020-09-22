@@ -31,7 +31,6 @@ dependencies:
   dio: ^3.0.10
   freezed_annotation:
   google_fonts: ^1.1.0
-  shimmer: ^1.1.1
   flutter_bloc: ^4.0.0
   cached_network_image: ^2.2.0+1
   dartz: ^0.9.1

@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:recipes/services/hive.dart';
 import 'package:recipes/ui/screens/category/category.dart';
 
 import '../../../config/constants.dart';
@@ -20,6 +21,9 @@ class RecipeScreen extends StatefulWidget {
 
 class _RecipeScreenState extends State<RecipeScreen> {
   final _bloc = RecipeBloc();
+
+  Recipe _recipe;
+
   bool _isFavorite = false;
 
   void _tapCategory(String categoryName) {
@@ -37,6 +41,10 @@ class _RecipeScreenState extends State<RecipeScreen> {
     setState(() {
       _isFavorite = !_isFavorite;
     });
+    if (_isFavorite)
+      AppHive.instance.insert(_recipe);
+    else
+      AppHive.instance.delete(_recipe);
   }
 
   void _watchVideo(videoUrl) {
@@ -49,7 +57,18 @@ class _RecipeScreenState extends State<RecipeScreen> {
   @override
   void initState() {
     super.initState();
-    _bloc.add(RecipeEvent.getDetails(recipeId: widget.recipeId));
+    _isFavorite = AppHive.instance.isExist(widget.recipeId);
+
+    _bloc
+      ..add(RecipeEvent.getDetails(recipeId: widget.recipeId))
+      ..listen((state) {
+        state.maybeWhen(
+          detailsLoaded: (recipe) {
+            _recipe = recipe;
+          },
+          orElse: () {},
+        );
+      });
   }
 
   @override
@@ -128,7 +147,7 @@ class _RecipeScreenState extends State<RecipeScreen> {
                                 width: 100,
                                 height: 5,
                                 decoration: BoxDecoration(
-                                  color: Colors.grey[400],
+                                  color: Colors.grey[300],
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                               ),
@@ -232,7 +251,7 @@ class _RecipeScreenState extends State<RecipeScreen> {
                     width: 40,
                     padding: const EdgeInsets.all(5),
                     decoration: BoxDecoration(
-                      color: Colors.grey[200],
+                      color: Colors.grey[100],
                       shape: BoxShape.circle,
                     ),
                     child: CachedNetworkImage(
